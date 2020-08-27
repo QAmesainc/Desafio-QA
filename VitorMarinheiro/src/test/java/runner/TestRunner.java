@@ -4,6 +4,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import metodos.Gerais;
 
 /*
  * Definição das funcionalidades das Options do cucumber:
@@ -42,15 +43,22 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(plugin = {
 		"json:target/cucumber-reports/Cucumber.json" }, features = "src/test/java/features", glue = "", tags = {
-				"@Desafio" }, monochrome = false, dryRun = true, strict = false)
+				"@Desafio" }, monochrome = false, dryRun = false, strict = false)
 public class TestRunner extends AbstractTestNGCucumberTests {
-
+	
 	@BeforeClass	
 	public static void setUpBeforeClass() {
+		
+		// Captura SO utilizada na execucao  (Ajustar comandos de utilizacao para o Docker)
+		Gerais.capturarSO();
+		
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() {
+
+		// Abre o explorer apontando para o arquivo gerado
+		Gerais.abrirDiretorioDeEvidencias();
 	}
 	
 }
