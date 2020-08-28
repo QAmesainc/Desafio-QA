@@ -1,0 +1,203 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Desafio - MESA</title>
+<link type="text/css" rel="StyleSheet">
+</head>
+
+
+<body>
+	<!--msnavigation-->
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<!--msnavigation-->
+				<td valign="top"><font  size="10">
+							<p align="CENTER"><img src="LOGO_GIF.gif" alt="Simply Easy Learning" width="400" height="200"></p>
+						<p align="CENTER">
+							<b>Desafio - MESA</b>
+						</p>
+				</font>  <font 
+						size="6"><b>
+								<p align="LEFT">Súmario</p>
+						</b></font>
+						<ol>
+
+							
+							<li><a href="#_Toc447185705">Casos de Teste</a>
+								<ol>
+									<li><a href="#_Toc447185731">Funcionalidade: Comprar produto</a></li>
+									<ol>
+										<li><a href="#_Toc447141206">Cenário: Realizar compra imediata</a></li>
+										<li><a href="#_Toc4123185706">Cenário: Realizar compra pelo carrinho</a></li>
+									</ol>
+									<li><a href="#_Toc447183127">Funcionalidade: Gerenciar conta de usuário</a></li>
+									<ol>
+										<li><a href="#_Toc4412385706">Cenário: Adicionar novo endereço padrão de entrega</a></li>
+										<li><a href="#_Toc4412385716">Cenário: Alterar informação do usuário</a></li>
+										<li><a href="#_Toc4412385416">Cenário: Configurar notificações</a></li>
+									</ol>
+									
+								</ol></li>
+								<font size="10">
+								<p align="CENTER"><b>BDD</b></p>
+						</b></font> 
+
+					
+						<p>
+							<b><font size="5">1. <a name="_Toc447185705">Casos de Teste</a></font></b>
+						</p>
+								<p>&nbsp;</p>
+						<blockquote>
+								<p>
+									<font size="4">1. <a
+												name="_Toc447185731"><b><span style="color: green">Funcionalidade: </span></b></a>	Comprar produto
+								</p>
+						</blockquote>
+						
+						<ul><blockquote>
+							<font size="3">
+								<p>Como um usuário</p>
+								<p>Iniciar buscar por um produto</p>
+								<p>Assim este produto pode ser comprado</p>
+								</blockquote><p>
+									<span style="color: green"><font size="4"><b>Contexto: </b> 
+									</font></p><blockquote>
+								<p> <font color=blue><b>Dado</b></font> usuário logado na página home da Amazon</p>
+								<p>	<font color=blue><b>Quando</b></font> buscar por um produto específico</p>
+								<p>	<font color=blue><b>Então</b></font> o resultado da busca será apresentado</p>
+								<p>	<font color=blue><b>E</b></font> o produto será selecionado</p>
+								
+								<p>&nbsp;</p>
+								</blockquote>
+								<p><a name="_Toc447141206"></a>	<span style="color: green"><font size="4"><b>Cenário: </b></span></font> Realizar compra imediata</p>
+								<blockquote>
+								<p> <font color=blue><b>Dado</b></font> que o usuário selecionou a opção de 'Comprar Agora'</p>
+								<p>	<font color=blue><b>Quando</b></font> for apresentada a tela de conferir e finalizar pedido</p>
+								<p>	<font color=blue><b>Então</b></font> os dados da compra serão apresentados corretamente</p>
+								<p>	<font color=blue><b>E</b></font> o usuário irá confirmar o pedido</p>
+								
+								<p>&nbsp;</p></blockquote><p><a name="_Toc4123185706"></a>	<span style="color: green"><font size="4"><b>Cenário: </b></span></font> Realizar compra pelo carrinho</p>
+								<blockquote>
+								<p> <font color=blue><b>Dado</b></font> que o usuário selecionou a opção de 'Adicionar ao carrinho'</p>
+								<p>	<font color=blue><b>Quando</b></font> for apresentada a mensagem de item adicionado</p>
+								<p>	<font color=blue><b>Então</b></font> será selecionada a opção de Carrinho</p>
+								<p> <font color=blue><b>Dado</b></font> que a página do carrinho de compras foi aberto</p>
+								<p>	<font color=blue><b>Quando</b></font> for apresentada a alteração do item adicionado</p>
+								<p>	<font color=blue><b>Então</b></font> o usuário fechará o pedido</p>
+								<p>	<font color=blue><b>Quando</b></font> for apresentada a tela de conferir e finalizar pedido</p>
+								<p>	<font color=blue><b>Então</b></font> os dados da compra serão apresentados corretamente</p>
+								<p>	<font color=blue><b>E</b></font> o usuário irá confirmar o pedido</p>
+								
+								
+							</font></blockquote>
+							
+						</ul>
+						
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+						<blockquote>
+								<p>
+									<font size="4">1. <a
+												name="_Toc447183127"><b><span style="color: green">Funcionalidade: </span></b></a>	Gerenciar conta de usuário
+								</p>
+						</blockquote>
+												<ul><blockquote>
+							<font size="3">
+								<p>Como um usuário logado no sistema</p>
+								<p>Acessar a área de conta do usuário</p>
+								<p>Então realizar alterações nas informações</p>
+								<p>E validar sucesso nas alterações</p>
+								</blockquote><p>
+									<span style="color: green"><font size="4"><b>Contexto: </b> 
+									</font></p><blockquote>
+								<p> <font color=blue><b>Dado</b></font> usuário logado na página home da Amazon</p>
+								<p>	<font color=blue><b>Quando</b></font> acessar a página da sua conta</p>
+								<p>	<font color=blue><b>Então</b></font> serão apresentados os menus da conta do usuário</p>
+								
+								<p>&nbsp;</p>
+								</blockquote>
+								<p><a name="_Toc4412385706"></a>	<span style="color: green"><font size="4"><b>Cenário: </b></span></font> Adicionar novo endereço padrão de entrega</p>
+								<blockquote>
+								<p> <font color=blue><b>Dado</b></font> que o usuário selecionou a opção de 'Endereços'</p>
+								<p>	<font color=blue><b>Quando</b></font> for apresentada a tela com os endereços cadastrados</p>
+								<p>	<font color=blue><b>Então</b></font> o usuário selecionará a opção de adicionar um novo endereço</p>
+								<p> <font color=blue><b>Dado</b></font> que os dados do endereço foram inseridos</p>
+								<p> <font color=blue><b>E</b></font> que o endereço foi adicionado</p>
+								<p>	<font color=blue><b>Quando</b></font> for apresentada a tela com os endereços cadastrados</p>
+								<p>	<font color=blue><b>Então</b></font> o novo endereço será definido como padrão</p>
+								<p>	<font color=blue><b>Mas</b></font> o novo CEP não será apresentado abaixo da logo da Amazon no canto superior esquerdo</p>
+								<p>	<font color=red><b>### Embora pouco utilizada, a palavas "MAS" (BUT) faz parte da lista de palavras-chaves do Gherkin.</b></font></p>
+								
+								<p>&nbsp;</p></blockquote><p><a name="_Toc4412385716"></a><span style="color: green"><font size="4"><b>Cenário: </b></span></font> Alterar informação do usuário</p>
+								<blockquote>
+								<p> <font color=blue><b>Dado</b></font> que o usuário selecionou a opção de 'Acesso e segurança'</p>
+								<p>	<font color=blue><b>Quando</b></font> for apresentada a tela com as informações do usuário</p>
+								<p>	<font color=blue><b>Então</b></font> será selecionada a opção de editar nome</p>
+								<p> <font color=blue><b>Dado</b></font> que foi inserido 'novo nome'</p>
+								<p>	<font color=blue><b>Quando</b></font> a alteração for salva</p>
+								<p>	<font color=blue><b>Então</b></font> 'novo nome' será apresentado nas informações do usuário</p>
+								<p> <font color=blue><b>Dado</b></font> que a opção de concluir alterações foi selecionada</p>
+								<p>	<font color=blue><b>Quando</b></font> acessar a página da sua conta</p>
+								<p>	<font color=blue><b>Então</b></font> 'novo nome' será apresentado no canto superior direito da tela</p>
+								<p>	<font color=blue><b>Mas</b></font> 'novo nome' não será apresentado abaixo da logo da Amazon no canto superior esquerdo</p>
+								
+								<p>&nbsp;</p></blockquote><p><a name="_Toc4412385416"></a><span style="color: green"><font size="4"><b>Cenário: </b></span></font> Configurar notificações</p>
+								<blockquote>
+								<p> <font color=blue><b>Dado</b></font> que o usuário selecionou a opção de 'Configurações de notificação'</p>
+								<p>	<font color=blue><b>Quando</b></font> for apresentada a tela com as preferëncias de comunicação</p>
+								<p>	<font color=blue><b>Então</b></font> será atualizada a opção de correnspondëncia em mala direta</p>
+								<p> <font color=blue><b>Dado</b></font> que o usuário finalizou a alteracao</p>
+								<p> <font color=blue><b>E</b></font> voltou para a home da amazon</p>
+								<p>	<font color=blue><b>Quando</b></font> acessar a página da sua conta</p>
+								<p>	<font color=blue><b>Então</b></font> serão apresentados os menus da conta do usuário</p>
+								<p> <font color=blue><b>Dado</b></font> que o usuário selecionou a opção de 'Configurações de notificação'</p>
+								<p>	<font color=blue><b>Quando</b></font> for apresentada a tela com as preferëncias de comunicação</p>
+								<p>	<font color=blue><b>Então</b></font> as informações de mala direta devem corresponder com as alterações feitas</p>
+								
+							</font></blockquote>
+							
+						</ul>
+						
+						
+					
+						
+<p>
+							&nbsp;
+							<!--msnavigation-->
+						</p></td>
+			</tr>
+			<!--msnavigation-->
+		</tbody>
+	</table>
+	<!--msnavigation-->
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td>
+					<table border="0" width="100%" height="23">
+						<tbody>
+							<tr>
+
+								<td width="39%" height="19">
+									<p align="center">
+										<font><small> Criado por Vitor Marinheiro<br>
+											</small></font>
+									</p><p align="center">
+										<font><small><small> 27/08/2020<br>
+											</small></small></font>
+									</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>&nbsp;</p>
+				</td>
+			</tr>
+			<!--msnavigation-->
+		</tbody>
+	</table>
+
+
+</body>
+</html>
