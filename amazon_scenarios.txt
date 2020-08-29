@@ -1,0 +1,47 @@
+FEATURE: Buy a product
+
+    SCENARIO: search a for a notebook
+        GIVEN the user is has clickled on the search bar
+        AND the user is in any page of the website
+        WHEN the user clicks on the serach bar 
+        AND seach for a product
+        THEN a list of related product should be visible
+
+    SCENARIO: Add to the cart
+        GIVEN the user is on the product "notebook"
+        WHEN the user clicks on add to the cart button 
+        THEN the product should be on the cart
+
+    SCENARIO: Go to payment options
+        GIVEN the product "notebook" is on the cart
+        WHEN the user clicks on go to payment 
+        THEN the payment page should be displayed
+    
+    SCENARIO: Submit payment
+        GIVEN the is on the payment page
+        WHEN the user Submits valid payment information 
+        THEN a menssage informing success shoud be visible
+
+
+FEATURE: Create an account
+
+    SCENARIO: Go to the login page
+        GIVEN the user is in any page of the website
+        WHEN the user clicks on the "Log in" button
+        THEN the log in page should be displayed
+
+    SCENARIO: Try to log in
+        GIVEN the user is on the login page
+        WHEN the user types nonexistent credentials
+        THEN the message "We couldn't find an account associated with this email address" should be displayed.
+
+    SCENARIO: Create an account
+        GIVEN the user clicks on "Create an account" button
+        WHEN the user fill in a name, an email and a password 
+        THEN a verification email page should be displayed
+    
+    SCENARIO: Confirm account
+        GIVEN the user is on the verification email page
+        WHEN insert the code sent to the email
+        AND clicks on the "Create an Amazon account" button 
+        THEN the user should be logged in 
