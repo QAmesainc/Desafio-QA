@@ -1,0 +1,21 @@
+{
+  "name": "selecao_qa",
+  "version": "1.0.0",
+  "description": "selecao qa mesa mobile",
+  "main": "app.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "keywords": [
+    "qa",
+    "automacao",
+    "test"
+  ],
+  "author": "rotsen",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "cucumber": "^6.0.5",
+    "cypress": "^5.0.0"
+  }
+}
