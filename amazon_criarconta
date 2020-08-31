@@ -1,0 +1,41 @@
+#language: pt-br
+
+Funcionalidade: Criar conta
+
+    Novo cliente cria conta no site da Amazon
+
+    Contexto:
+        Dado que o cliente está na página inicial do site da Amazon
+        E desliza o mouse na área "Olá, Faça seu login"
+        E o cliente clica no link "Comece aqui."
+        E o sistema exibe a página "Criar Conta"
+       
+    Cenário: E-mail informado é inválido.
+        Quando o cliente informa o nome "Ana Vasconcelos”
+        E o cliente informa o e-mail "anacvasconcelos@gmail"
+        E o cliente informa a senha "1234567"
+        E o cliente informa novamente a senha "1234567"
+        E o cliente clica no botão "Criar sua conta da Amazon"
+        
+        Então o sistema exibe a mensagem "Endereço de e-mail inválido."
+        E destaca, em vermelho, o campo "E-mail".
+    
+    Cenário: Senhas não são iguais.
+        Quando o cliente informa o nome "Ana Vasconcelos”
+        E o cliente informa o e-mail "anacvasconcelos@gmail.com"
+        E o cliente informa a senha "1234567"
+        E o cliente informa novamente a senha "123456"
+        E o cliente clica no botão "Criar sua conta da Amazon"
+        
+        Então o sistema exibe a mensagem "As senhas não são iguais"
+        E destaca, em vermelho, os campos "Senha" e "Insira a senha nova mais uma vez”
+    
+    Cenário: E-mail informado já está cadastrado.
+        Quando o cliente informa o nome "Ana Vasconcelos”
+        E o cliente informa o e-mail "anacvasconcelos@gmail.com"
+        E o cliente informa a senha "1234567"
+        E o cliente informa novamente a senha "1234567"
+        E o cliente clica no botão "Criar sua conta da Amazon"
+        
+        Então o cliente deve ser redirecionado para a página "O endereço de e-mail já está sendo utilizado"
+        E o sistema exibe a mensagem " Você indicou que é um cliente novo, mas já existe uma conta com o e-mail anacvasconcelos@gmail.com. Se já tem conta em algum site da Amazon, pode usar a mesma conta e senha para fazer o login na amazon.com.br."
