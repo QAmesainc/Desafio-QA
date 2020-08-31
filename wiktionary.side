@@ -1,0 +1,188 @@
+{
+  "id": "e788413b-478b-4546-92dc-2fa6b7a9c3c4",
+  "version": "2.0",
+  "name": "wiktionary",
+  "url": "https://www.wiktionary.org",
+  "tests": [{
+    "id": "fa3636e1-b65f-4fa5-bbf1-4f4f8e33da5f",
+    "name": "apple",
+    "commands": [{
+      "id": "def30a19-c4a3-4a01-b7d4-8ce673221be5",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"apple\"",
+      "targets": [],
+      "value": "nome"
+    }, {
+      "id": "b3722eaa-8062-4c5b-8ae8-664424a25cd1",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates.\"",
+      "targets": [],
+      "value": "umaDefinicao"
+    }, {
+      "id": "dee5330a-0b78-4c7b-8674-0a5fd06ba9a7",
+      "comment": "",
+      "command": "run",
+      "target": "_busca",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "0422441b-e86b-45e6-aa6f-a814ec7516d8",
+    "name": "_busca",
+    "commands": [{
+      "id": "5af9951f-1640-46b7-98f7-be9b059bb2d6",
+      "comment": "",
+      "command": "open",
+      "target": "https://en.wiktionary.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f7576da6-cd1e-4ad5-8861-929912c03633",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=search",
+      "targets": [],
+      "value": "${nome}"
+    }, {
+      "id": "602ff947-b9ed-4d74-bdf9-f941057846eb",
+      "comment": "",
+      "command": "click",
+      "target": "name=go",
+      "targets": [
+        ["css=.formBtn > img", "css:finder"],
+        ["xpath=//img[@alt='Search']", "xpath:img"],
+        ["xpath=//body[@id='www-wiktionary-org']/div[2]/form/fieldset/button/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "836246e2-8016-4bc3-bdde-f913f697cb0a",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//*[@id=\"Noun\"]/following::ol[1]/li",
+      "targets": [],
+      "value": "tamanho"
+    }, {
+      "id": "4e5697b9-726c-4bec-814f-5763c578dbaf",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return false",
+      "targets": [],
+      "value": "contem"
+    }, {
+      "id": "6cefa30f-7e1a-44ce-a783-569f5ff1c6db",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1",
+      "targets": [],
+      "value": "c"
+    }, {
+      "id": "8408af7a-5fa4-4e69-8f29-c01b45eebde2",
+      "comment": "",
+      "command": "while",
+      "target": "${c} <= ${tamanho}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d377cdb-78af-43d5-8c96-2266ccb1e0b4",
+      "comment": "",
+      "command": "echo",
+      "target": "iniciando passo ${c}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "77c63edf-c909-40ae-987f-97d7ebeb2f0a",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//*[@id=\"Noun\"]/following::ol[1]/li[${c}]",
+      "targets": [],
+      "value": "conteudo"
+    }, {
+      "id": "1cba6f8c-a7c9-447f-bef5-e086b9b39455",
+      "comment": "",
+      "command": "if",
+      "target": "${conteudo}.indexOf(${umaDefinicao}) >= 0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7bae76a7-878d-4363-8a33-eb6e8543e495",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return true",
+      "targets": [],
+      "value": "contem"
+    }, {
+      "id": "0d8166da-a7da-4efb-bddd-fbc8ad65faeb",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${tamanho}",
+      "targets": [],
+      "value": "c"
+    }, {
+      "id": "87f69d83-8d4b-4844-820c-0a9e055d33d3",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "00f510ee-cd1c-4319-84b2-6e6f716d0bb3",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${c} + 1",
+      "targets": [],
+      "value": "c"
+    }, {
+      "id": "bfa193c4-f931-4b45-a4b7-d07a5539e09e",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1b03888d-64fd-4331-9a0c-05538e0213a8",
+      "comment": "",
+      "command": "assert",
+      "target": "contem",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "d1cbf254-6d3a-4a51-ada5-8cd1e87be7c0",
+    "name": "pear",
+    "commands": [{
+      "id": "433e12f5-a954-4b87-9b9e-980958bbfa06",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"pear\"",
+      "targets": [],
+      "value": "nome"
+    }, {
+      "id": "14b9c146-98b8-4da3-aff5-beb2841af2c8",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem.\"",
+      "targets": [],
+      "value": "umaDefinicao"
+    }, {
+      "id": "c7527585-a9ce-490f-ba2b-57220147425a",
+      "comment": "",
+      "command": "run",
+      "target": "_busca",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ef4806a4-cab3-41aa-8e26-e6fe8f2fa622",
+    "name": "wiktionaryTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["fa3636e1-b65f-4fa5-bbf1-4f4f8e33da5f", "d1cbf254-6d3a-4a51-ada5-8cd1e87be7c0", "0422441b-e86b-45e6-aa6f-a814ec7516d8"]
+  }],
+  "urls": ["https://www.wiktionary.org/"],
+  "plugins": []
+}
