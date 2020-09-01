@@ -14,7 +14,7 @@ describe('TC01_Search_Main_Page', function(){
             .contains('Wiktionary, the free dictionary')
             
     }),
-    /**Validation 1 */
+    /**Validation 1 Check the apple description in the definition page*/
     it('search_apple', function () {
         cy
             .visit('/') 
@@ -24,7 +24,7 @@ describe('TC01_Search_Main_Page', function(){
             
     })
 
-    /**Validation 2 */
+    /**Validation 2 Check the pear description in the definition page */
     it('search_pear', function () {
         cy
             .visit('/') 
