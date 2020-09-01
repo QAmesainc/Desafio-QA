@@ -1,4 +1,4 @@
-Guide to run the test 
+## Guide to run the test 
 
 Cypress web test automation suite for Wikitionary: Words Definition
 
@@ -19,10 +19,14 @@ Make sure you have the cypress installed
 
 download and install it > https://nodejs.org/en/download/
 
-## Installing Cypres:
+## Installing Cypress:
 
 > npm install cypress --save-dev
 
-## to run the test 
+## to run cypress framework
 
 > npx cypress open     
+
+## On the cypress GUI
+
+> click on the file "TC01_.spec"
