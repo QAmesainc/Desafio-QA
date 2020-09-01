@@ -1,0 +1,39 @@
+#language: pt-br
+
+Funcionalidade: Realizar compra
+
+    Cliente, logado, realiza compra no site da Amazon.
+    
+    Contexto:
+        Dado que o cliente está logado no site da Amazon
+        E tem um cartão de crédito cadastrado
+        E tem o "Comprar agora com 1-clique” habilitado
+        E realizou uma busca por "Agile Testing”
+        E o cliente selecionou o livro " Agile Testing: A Practical Guide for Testers and Agile Teams (Addison-Wesley Signature Series (Cohn)) (English Edition)”
+        E o sistema exibe tela para compra do livro.
+        
+    Cenário: Inserir cupom de desconto inválido.
+        Quando o cliente clica no botão "Insira um cupom de desconto”
+        E o sistema exibe a tela "Digite um cupom de desconto ou um vale-presente"
+        E o cliente informa o código "brindemesa"
+        E o cliente clica no botão "Aplicar"
+        
+        Então o sistema exibe a mensagem "O código que você digitou é inválido."
+        
+    Cenário: Inserir cupom de desconto inválido na tela de pagamento
+        Quando o cliente clica no link "Alterar”
+        E o sistema exibe a tela "Como gostaria de pagar?"
+        E o cliente informa, na área "Seus Saldos", o código "brindemesa"
+        E o cliente clica no botão "Aplicar"
+        
+        Então o sistema exibe a mensagem "O código de resgate inserido é inválido."
+        
+    Cenário3: Comprar com Boleto Bancário.
+        Quando o cliente clica no link "Alterar"
+        E o sistema exibe a tela "Como gostaria de pagar?"
+        E o cliente seleciona, na área "Outros métodos de pagamento", a opção "Boleto"
+        E o cliente clica no botão "Finalizar pedido e gerar boleto"
+        
+        Então o sistema exibe a mensagem "Obrigado! Seu pedido foi feito e será processado após o pagamento do Boleto"
+        E o sistema exibe o código do boleto, vencimento, valor
+        E o sistema exibe botões "Visualizar Boleto" e "Copiar Código do Boleto".
