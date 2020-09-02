@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "..\\cers"
+		},
+		{
+			"path": "..\\cers_portal"
+		},
+		{
+			"path": "..\\qa_mesa"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\selecao_qa_2"
+		}
+	],
+	"settings": {}
+}
