@@ -1,0 +1,62 @@
+// Validar que o E-mail do usuário é obrigatório no Cadastro
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.core.IsNot.not;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
+import java.util.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+public class ValidarCadastroEmailObrigatorioTest {
+  private WebDriver driver;
+  private Map<String, Object> vars;
+  JavascriptExecutor js;
+  @Before
+  public void setUp() {
+    driver = new ChromeDriver();
+    js = (JavascriptExecutor) driver;
+    vars = new HashMap<String, Object>();
+  }
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+  @Test
+  public void validarCadastroEmailObrigatorio() {
+    driver.get("https://www.amazon.com.br/");
+    {
+      WebDriverWait wait = new WebDriverWait(driver, 3);
+      wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Comece aqui.")));
+    }
+    driver.findElement(By.linkText("Comece aqui.")).click();
+    {
+      WebDriverWait wait = new WebDriverWait(driver, 30);
+      wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_customer_name")));
+    }
+    driver.findElement(By.id("ap_customer_name")).sendKeys("NomeTeste");
+    driver.findElement(By.id("ap_password")).sendKeys("abc123");
+    driver.findElement(By.id("ap_password_check")).sendKeys("abc123");
+    driver.findElement(By.id("continue")).click();
+    {
+      WebDriverWait wait = new WebDriverWait(driver, 3);
+      wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#auth-email-missing-alert .a-alert-content")));
+    }
+    assertThat(driver.findElement(By.cssSelector("#auth-email-missing-alert .a-alert-content")).getText(), is("Insira seu e-mail"));
+    driver.close();
+  }
+}
