@@ -1,0 +1,60 @@
+// Validar definição existente para 'apple'
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.core.IsNot.not;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
+import java.util.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+public class ValidardenificaoexistenteappleTest {
+  private WebDriver driver;
+  private Map<String, Object> vars;
+  JavascriptExecutor js;
+  @Before
+  public void setUp() {
+    driver = new ChromeDriver();
+    js = (JavascriptExecutor) driver;
+    vars = new HashMap<String, Object>();
+  }
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+  @Test
+  public void validardenificaoexistenteapple() {
+    driver.get("https://en.wiktionary.org/wiki/Wiktionary:Main_Page");
+    {
+      WebDriverWait wait = new WebDriverWait(driver, 3);
+      wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("search")));
+    }
+    driver.findElement(By.name("search")).click();
+    driver.findElement(By.name("search")).sendKeys("apple");
+    driver.findElement(By.name("go")).click();
+    {
+      WebDriverWait wait = new WebDriverWait(driver, 3);
+      wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("ol:nth-child(12) > li:nth-child(1)")));
+    }
+    driver.findElement(By.cssSelector("ol:nth-child(12) > li:nth-child(1)")).click();
+    assertThat(driver.findElement(By.cssSelector("ol:nth-child(12) > li:nth-child(1)")).getText(), is("A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates."));
+    driver.close();
+  }
+}
+
+
+

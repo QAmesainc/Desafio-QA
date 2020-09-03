@@ -1,0 +1,66 @@
+// Validar que, no Cadastro, os campos "Senha" e "Confirmação de Senha" não podem ser divergentes entre si
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.core.IsNot.not;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
+import java.util.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+public class ValidarConfirmaodeSenhaTest {
+  private WebDriver driver;
+  private Map<String, Object> vars;
+  JavascriptExecutor js;
+  @Before
+  public void setUp() {
+    driver = new ChromeDriver();
+    js = (JavascriptExecutor) driver;
+    vars = new HashMap<String, Object>();
+  }
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+  @Test
+  public void validarConfirmaodeSenha() {
+    driver.get("https://www.amazon.com.br/");
+    driver.manage().window().setSize(new Dimension(1050, 708));
+    {
+      WebElement element = driver.findElement(By.cssSelector("#nav-orders > .nav-line-1"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element).perform();
+    }
+    {
+      WebElement element = driver.findElement(By.tagName("body"));
+      Actions builder = new Actions(driver);
+      builder.moveToElement(element, 0, 0).perform();
+    }
+    driver.findElement(By.linkText("Comece aqui.")).click();
+    driver.findElement(By.id("ap_customer_name")).sendKeys("abc123");
+    driver.findElement(By.id("ap_email")).click();
+    driver.findElement(By.id("ap_email")).sendKeys("abc123@gmail.com");
+    driver.findElement(By.id("ap_password")).click();
+    driver.findElement(By.id("ap_password")).sendKeys("123456");
+    driver.findElement(By.id("ap_password_check")).click();
+    driver.findElement(By.id("ap_password_check")).sendKeys("12345");
+    driver.findElement(By.id("continue")).click();
+    driver.findElement(By.cssSelector("#auth-password-mismatch-alert > .a-box-inner")).click();
+    assertThat(driver.findElement(By.cssSelector("#auth-password-mismatch-alert .a-alert-content")).getText(), is("As senhas não são iguais"));
+    driver.close();
+  }
+}
