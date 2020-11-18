@@ -17,7 +17,7 @@ public class DriverManager {
 
 	public static WebDriver getDriver() {
 		if (driver == null) {
-			System.setProperty("webdriver.gecko.driver", "/Users/ewerttonoliveira/git/Desafio-QA/mesa-desafio/src/test/resources/geckodriver");
+			System.setProperty("webdriver.gecko.driver", "/Users/ewerttonoliveira/geckodriver");
 			WebDriver driver = new FirefoxDriver();
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
