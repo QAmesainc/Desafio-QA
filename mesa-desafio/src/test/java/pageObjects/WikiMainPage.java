@@ -10,31 +10,48 @@ import org.openqa.selenium.WebElement;
 public class WikiMainPage extends DriverManager {
 
 	public WikiMainPage(WebDriver driver) {
-		super(driver);
+		DriverManager.driver = driver;
+	System.out.println(driver);
 	}
 	
 	public String getwikiMainPageTitle() {
 		return driver.getTitle();
-		
-	}
-	// Selectors
-		private static By centralSearchField = By.cssSelector("#bodySearchInput0\\.059829490412"); 
-		private static By lookUpButton = By.cssSelector("input.mw-ui-button");
-	    private static By nounDefinition = By.cssSelector(".mw-parser-output > ol:nth-child(12)"); 
-	    private static By headResult = By.cssSelector("#firstHeading");
+		}
 	
+	// Selectors
+		private By centralSearchField = (By.name("search")); 
+		private By lookUpButton = By.cssSelector("input.mw-ui-button");
+		private By mainPageLink = By.cssSelector("#n-mainpage-text > a:nth-child(1)");
+	    private By applenounDefinition = By.cssSelector(".mw-parser-output > ol:nth-child(12)"); 
+	    private By cApplenounDefinition = By.cssSelector(".mw-parser-output > ol:nth-child(13)"); 
+	    private By pearnounDefinition = By.cssSelector(".mw-parser-output > ol:nth-child(13)"); 
+	    private By headResult = By.cssSelector("#firstHeading");
+	   
 	//Actions
-	    
-	    public  WebElement CentralSearchField() {
-	    	return driver.findElement(centralSearchField);
+	    public  WebElement inputCentralSearchField() {
+	  	return driver.findElement(centralSearchField);
 	        }
-	    public void ClickLookUpButton() {
+	    public void clickLookUpButton() {
 			driver.findElement(lookUpButton).click();
 	        }
-	    public String VerifyNounDefinition() {
-			return driver.findElement(nounDefinition).getText();
+	    public void clickMainPageLink() {
+			driver.findElement(mainPageLink).click();
+	        }
+	   
+	    
+	    public String verifyappleNounDefinition() {
+			return driver.findElement(applenounDefinition).getText();
 	    }
-	    public String VerifyHeadResult() {
+	    
+	    public String verifyAppleNounDefinition() {
+	    	return driver.findElement(cApplenounDefinition).getText();
+	    }
+	    public String verifypearNounDefinition() {
+	    	return driver.findElement(pearnounDefinition).getText();
+	    }
+	    
+	    
+	    public String verifyHeadResult() {
 			return driver.findElement(headResult).getText();
 	    }
 			
