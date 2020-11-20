@@ -11,7 +11,7 @@ public class WikiMainPage extends DriverManager {
 
 	public WikiMainPage(WebDriver driver) {
 		DriverManager.driver = driver;
-	System.out.println(driver);
+	//System.out.println(driver);
 	}
 	
 	public String getwikiMainPageTitle() {
