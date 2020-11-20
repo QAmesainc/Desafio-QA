@@ -34,8 +34,8 @@ public class SearchForPearTests {
 	
 	
 	@After
-	public void tearDown() {
-		driver.quit();
+	public void afterScenario() {
+		DriverManager.endSession();
+	}
 
-}
 }
